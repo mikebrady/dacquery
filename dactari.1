@@ -1,0 +1,83 @@
+.TH dactari 1 User Manuals
+.SH NAME
+dactari \- ALSA DAC Doctor
+.SH SYNOPSIS
+\fBdactari [-e]\fB
+
+dactari -h\fB
+
+dactari -V\fB
+\f1
+.SH DESCRIPTION
+Dactari in an ALSA utility that scans a system's sound cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels (with channel maps if available) that can be accepted using interleaved output. It probes interfaces that begin with \fBhw:\f1, \fBhdmi:\f1 or \fBiec958:\f1. Dactari also lists the mixers attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute. 
+.SH OPTIONS
+.TP
+\fB-e\f1
+Display extra information, including devices, sub-devices and interfaces.
+.TP
+\fB-h\f1
+Display help information and quit. 
+.TP
+\fB-V\f1
+Display version information and quit. 
+.SH EXAMPLE
+.P
+.in +4n
+.EX
+$ dactari -e
+  --- Alsa Version: 1.2.12.
+  --- Sound Cards: 1.
+  --- Card 0:
+        --- CTL name: "hw:CARD=Generic".
+        --- Name: "HD-Audio Generic".
+        --- Long name: "HD-Audio Generic at 0x3d400000 irq 72".
+        --- Devices: 1.
+              --- Device 0:
+                    --- Name: "Generic Analog".
+                    --- ID: "Generic Analog".
+                    --- Subdevices: 1.
+                          --- Subdevice: 0:
+                                --- Name: "subdevice #0".
+                                --- Interfaces:
+                                      >>> "hw:Generic"
+        --- Mixers: 8.
+               --------------------------------------------------------------------------------------------------------
+              |  Name                              |  Index  |     Min  |     Max  |  Mute dB  |   Min dB  |   Max dB  |
+               --------------------------------------------------------------------------------------------------------
+              |  Master                            |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  PCM                               |      0  |       0  |     255  |       No  |   -51.00  |     0.00  |
+              |  Front                             |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  Surround                          |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  Center                            |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  LFE                               |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  Side                              |      0  |       0  |      64  |       No  |   -64.00  |     0.00  |
+              |  Mic Boost                         |      0  |       0  |       3  |       No  |     0.00  |    30.00  |
+               --------------------------------------------------------------------------------------------------------
+        --- Interfaces and Supported Formats:
+              >>> Interface "hw:Generic":
+                  The interface listed above supports rate, format and channel combinations from the following table:
+                       -------------------------------------------------------------------------------------------------------------
+                      |    Rate |              Format |  Channels | Channel Map                                                     |
+                       -------------------------------------------------------------------------------------------------------------
+                      |   44100 |              S16_LE |         2 | FL FR                                                           |
+                      |   48000 |              S32_LE |         4 | FL FR RL RR                                                     |
+                      |   96000 |                     |         8 | FL FR RL RR FC LFE SL SR                                        |
+                      |  192000 |                     |           |                                                                 |
+                       -------------------------------------------------------------------------------------------------------------
+.EE
+.in
+.P
+.SH NOTES
+Dactari must have permission to access the ALSA sound system. It will complain if it does not.
+
+For Dactari to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
+
+To test a HDMI interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
+.SH LIMITATION
+Dactari lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world. Another possibility is that the same audio hardware can appear in two or more different interfaces.
+.SH SEE ALSO
+\fBaplay(1)\f1, \fBamixer(1)\f1, \fBalsamixer(1)\f1, \fBspeaker-test(1)\f1. 
+.SH NAME
+The name Dactari is a play on the words "daktari" -- meaning "doctor" in Swahili -- and DAC, an acronym for a Digital to Analog Converter. So Dactari means DAC Doctor.
+.SH CREDITS
+Mike Brady (\fBhttps://github.com/mikebrady\f1) wrote Dactari.
