@@ -34,4 +34,10 @@ COPY --from=builder /dacaroni/dacaroni /
 # Remove anything we don't need.
 RUN rm -rf /lib/apk/db/*
 
-Entrypoint ["/dacaroni"]
+ENTRYPOINT ["/dacaroni"]
+
+# Build like this:
+# $ docker build --build-arg DACARONI_BRANCH=main -t dacaroni-latest -f Dockerfile .
+# Run like this:
+# $ docker run --device /dev/snd dacaroni-latest
+
