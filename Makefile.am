@@ -1,7 +1,7 @@
-bin_PROGRAMS = dactari
-man_MANS = dactari.1
+bin_PROGRAMS = dacaroni
+man_MANS = dacaroni.1
 
-dactari_SOURCES = dactari.c debug.c
+dacaroni_SOURCES = dacaroni.c debug.c
 
 AM_CFLAGS = -fno-common -Wno-multichar -Wall -Wextra -Wno-clobbered -Wno-psabi -pthread --include=config.h --include=debug.h
 

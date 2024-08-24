@@ -2,9 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.50])
-AC_INIT([dactari], [1.0], [4265913+mikebrady@users.noreply.github.com])
+AC_INIT([dacaroni], [1.0], [4265913+mikebrady@users.noreply.github.com])
 AM_INIT_AUTOMAKE
-AC_CONFIG_SRCDIR([dactari.c])
+AC_CONFIG_SRCDIR([dacaroni.c])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.

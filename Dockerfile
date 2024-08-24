@@ -2,8 +2,8 @@ FROM alpine AS builder
 
 # Check required arguments exist. These will be provided by the Github Action
 # Workflow and are required to ensure the correct branches are being used.
-ARG DACTARI_BRANCH
-RUN test -n "$DACTARI_BRANCH"
+ARG DACARONI_BRANCH
+RUN test -n "$DACARONI_BRANCH"
 
 RUN apk -U add \
         autoconf \
@@ -13,25 +13,25 @@ RUN apk -U add \
         alsa-lib-dev
 
 ##### Build  #####
-WORKDIR /dactari
+WORKDIR /dacaroni
 COPY . .
-RUN git checkout "$DACTARI_BRANCH"
+RUN git checkout "$DACARONI_BRANCH"
 RUN autoreconf -i 
 RUN ./configure
 RUN make
 WORKDIR /
 ##### Built #####
 
-# dactari runtime
+# dacaroni runtime
 FROM alpine
 
 RUN apk -U add \
         alsa-lib
 
 # Copy build files.
-COPY --from=builder /dactari/dactari /
+COPY --from=builder /dacaroni/dacaroni /
 
 # Remove anything we don't need.
 RUN rm -rf /lib/apk/db/*
 
-Entrypoint ["/dactari"]
+Entrypoint ["/dacaroni"]

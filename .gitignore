@@ -1,8 +1,8 @@
 /INSTALL
-/dactari
+/dacaroni
 /gitversion.h
 /gitversion-stamp
-man/dactari.1
+man/dacaroni.1
 build/
 
 *.o
