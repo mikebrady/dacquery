@@ -3,7 +3,7 @@
 # Tag pattern
 # 'main'      - latest
 
-name: Build and push Docker images (push/pull request)
+name: Build and Push Docker image to Docker Hub
 
 on:
   workflow_dispatch:
@@ -14,10 +14,10 @@ on:
 #      - main
 
 env:
-  DOCKER_PLATFORMS: linux/386
+  DOCKER_PLATFORMS: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
 
 jobs:
-  build-and-publish:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PERSONAL_ACCESS_TOKEN }}
  
-      - name: Build and push
+      - name: Docker Build and Push
         uses: docker/build-push-action@v6
         with:
           context: ./
