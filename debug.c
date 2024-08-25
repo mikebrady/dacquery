@@ -1,6 +1,6 @@
 /*
- * This file is part of dacaroni
- * (https://github.com/mikebrady/dacaroni). Copyright (c) 2024 Mike Brady.
+ * This file is part of dacquery
+ * (https://github.com/mikebrady/dacquery). Copyright (c) 2024 Mike Brady.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

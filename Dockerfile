@@ -2,8 +2,8 @@ FROM alpine AS builder
 
 # Check required arguments exist. These will be provided by the Github Action
 # Workflow and are required to ensure the correct branches are being used.
-ARG DACARONI_BRANCH
-RUN test -n "$DACARONI_BRANCH"
+ARG DACQUERY_BRANCH
+RUN test -n "$DACQUERY_BRANCH"
 
 RUN apk -U add \
         autoconf \
@@ -13,31 +13,31 @@ RUN apk -U add \
         alsa-lib-dev
 
 ##### Build  #####
-WORKDIR /dacaroni
+WORKDIR /dacquery
 COPY . .
-RUN git checkout "$DACARONI_BRANCH"
+RUN git checkout "$DACQUERY_BRANCH"
 RUN autoreconf -i 
 RUN ./configure
 RUN make
 WORKDIR /
 ##### Built #####
 
-# dacaroni runtime
+# dacquery runtime
 FROM alpine
 
 RUN apk -U add \
         alsa-lib
 
 # Copy build files.
-COPY --from=builder /dacaroni/dacaroni /
+COPY --from=builder /dacquery/dacquery /
 
 # Remove anything we don't need.
 RUN rm -rf /lib/apk/db/*
 
-ENTRYPOINT ["/dacaroni"]
+ENTRYPOINT ["/dacquery"]
 
 # Build like this:
-# $ docker build --build-arg DACARONI_BRANCH=main -t dacaroni-latest -f Dockerfile .
+# $ docker build --build-arg DACQUERY_BRANCH=main -t dacquery-latest -f Dockerfile .
 # Run like this:
-# $ docker run --device /dev/snd dacaroni-latest
+# $ docker run --device /dev/snd dacquery-latest
 

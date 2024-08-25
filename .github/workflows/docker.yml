@@ -25,16 +25,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set DACARONI_BRANCH env.
-        run: echo "DACARONI_BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Set DACQUERY_BRANCH env.
+        run: echo "DACQUERY_BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
       - name: Is branch "main"?
-        if: ${{ env.DACARONI_BRANCH == 'main' }}
+        if: ${{ env.DACQUERY_BRANCH == 'main' }}
         run: |
           echo "IMAGE_TAG_BASE=latest" >> $GITHUB_ENV
 
       - name: Is branch "experimental"?
-        if: ${{ env.DACARONI_BRANCH == 'experimental' }}
+        if: ${{ env.DACQUERY_BRANCH == 'experimental' }}
         run: |
           echo "IMAGE_TAG_BASE=experimental" >> $GITHUB_ENV
 
@@ -57,6 +57,6 @@ jobs:
           file: ./Dockerfile
           platforms: ${{ env.DOCKER_PLATFORMS }}
           push: ${{ env.IMAGE_TAG_BASE != '' }}
-          tags: ${{ 'mikebrady/dacaroni' }}:${{ env.IMAGE_TAG_BASE }}
+          tags: ${{ 'mikebrady/dacquery' }}:${{ env.IMAGE_TAG_BASE }}
           build-args: |
-            DACARONI_BRANCH=${{ env.DACARONI_BRANCH }}
+            DACQUERY_BRANCH=${{ env.DACQUERY_BRANCH }}

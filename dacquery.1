@@ -1,15 +1,15 @@
-.TH dacaroni 1 User Manuals
+.TH dacquery 1 User Manuals
 .SH NAME
-dacaroni \- ALSA DAC Explorer
+dacquery \- ALSA DAC Explorer
 .SH SYNOPSIS
-\fBdacaroni [-e]\fB
+\fBdacquery [-e]\fB
 
-dacaroni -h\fB
+dacquery -h\fB
 
-dacaroni -V\fB
+dacquery -V\fB
 \f1
 .SH DESCRIPTION
-Dacaroni in an ALSA utility that scans a system's sound cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels (with channel maps if available) that can be accepted using interleaved output. It probes interfaces that begin with \fBhw:\f1, \fBhdmi:\f1 or \fBiec958:\f1. Dacaroni also lists the mixers attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute. 
+Dacquery in an ALSA utility that scans a system's sound cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels (with channel maps if available) that can be accepted using interleaved output. It probes interfaces that begin with \fBhw:\f1, \fBhdmi:\f1 or \fBiec958:\f1. Dacquery also lists the mixers attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute. 
 .SH OPTIONS
 .TP
 \fB-e\f1
@@ -24,7 +24,7 @@ Display version information and quit.
 .P
 .in +4n
 .EX
-$ dacaroni -e
+$ dacquery -e
   --- Alsa Version: 1.2.12.
   --- Sound Cards: 1.
   --- Card 0:
@@ -68,14 +68,14 @@ $ dacaroni -e
 .in
 .P
 .SH NOTES
-Dacaroni must have permission to access the ALSA sound system. It will complain if it does not.
+Dacquery must have permission to access the ALSA sound system. It will complain if it does not.
 
-For Dacaroni to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
+For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
 
 To test a HDMI interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
 .SH LIMITATION
-Dacaroni lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world. Another possibility is that the same audio hardware can appear in two or more different interfaces.
+Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world. Another possibility is that the same audio hardware can appear in two or more different interfaces.
 .SH SEE ALSO
 \fBaplay(1)\f1, \fBamixer(1)\f1, \fBalsamixer(1)\f1, \fBspeaker-test(1)\f1. 
 .SH CREDITS
-Mike Brady (\fBhttps://github.com/mikebrady\f1) wrote Dacaroni.
+Mike Brady (\fBhttps://github.com/mikebrady\f1) wrote Dacquery.

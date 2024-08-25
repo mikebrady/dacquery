@@ -24,7 +24,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include "dacaroni.h"
+#include "dacquery.h"
 #include <alsa/asoundlib.h>
 #include <assert.h>
 #include <ctype.h>
@@ -1204,10 +1204,10 @@ int main(int argc, char *argv[]) {
       } else if (strcmp(argv[i] + 1, "h") == 0) {
         fprintf(
             stdout,
-            "Dacaroni prints information about ALSA DACs -- (Digital to Analog Converters).\n"
+            "Dacquery prints information about ALSA DACs -- (Digital to Analog Converters).\n"
             "It tries to open each DAC for interleaved operation at standard rates\n"
             "and formats, with one to eight output channels.\n"
-            "Dacaroni also prints information about output mixers it finds.\n\n"
+            "Dacquery also prints information about output mixers it finds.\n\n"
             "Notes:\n"
             "1. This tool must be run by a user with access to audio devices,\n"
             "   usually as a member of the \"audio\" unix group, or as the root user.\n"
@@ -1217,7 +1217,7 @@ int main(int argc, char *argv[]) {
             "   Take the device out of use and run this tool again.\n"
             "4. If a device can not be accessed, it may mean that it needs to be configured or\n"
             "   connected to an active external device.\n"
-            "5. Try 'man dacaroni' for more.\n\n"
+            "5. Try 'man dacquery' for more.\n\n"
 
             "Command line arguments:\n"
             "    -e     display extended information, including a \"map\" of cards, devices, subdevices and interfaces,\n"

@@ -1,17 +1,17 @@
 #### NAME AND DESCRIPTION
-Dacaroni is a command-line utility that scans a Linux system's [ALSA](https://www.alsa-project.org/) audio cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels
+Dacquery is a command-line utility that scans a Linux system's [ALSA](https://www.alsa-project.org/) audio cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels
 (with channel maps if available) they accept. (Interleaved audio is assumed.)
 
-Dacaroni only probes interfaces that begin with `hw:`, `hdmi:` or `iec958:`.
+Dacquery only probes interfaces that begin with `hw:`, `hdmi:` or `iec958:`.
 
-Dacaroni also lists the mixers  attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute.
+Dacquery also lists the mixers  attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute.
 
-The name on the command line is `dacaroni`. 
+The name on the command line is `dacquery`. 
 
 #### EXAMPLE
 
 ```
-$ dacaroni
+$ dacquery
   --- Alsa Version: 1.2.12.
   --- Sound Cards: 1.
   --- Card 0:
@@ -66,14 +66,14 @@ $ dacaroni
 `-V`Display version information and quit.
 
 #### NOTES
-Dacaroni must have permission to access the ALSA sound system. It should complain if it does not.
+Dacquery must have permission to access the ALSA sound system. It should complain if it does not.
 
-For Dacaroni to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
+For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
 
 To  test  a  HDMI  interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
 
 #### LIMITATION
-Dacaroni lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be useful or functional. For instance, they may not be physically hooked up to, say, output connections.
+Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be useful or functional. For instance, they may not be physically hooked up to, say, output connections.
 
 Another thing to note is that the same audio hardware can appear in two or more different interfaces.
 
@@ -81,4 +81,4 @@ Another thing to note is that the same audio hardware can appear in two or more 
 `aplay(1)`, `amixer(1)`, `alsamixer(1)`, `speaker-test(1)`.
 
 #### CREDITS
-Mike Brady (https://github.com/mikebrady) wrote Dacaroni to help with Shairport Sync.
+Mike Brady (https://github.com/mikebrady) wrote Dacquery to help with Shairport Sync.

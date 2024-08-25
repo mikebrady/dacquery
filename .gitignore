@@ -1,8 +1,8 @@
 /INSTALL
-/dacaroni
+/dacquery
 /gitversion.h
 /gitversion-stamp
-man/dacaroni.1
+man/dacquery.1
 build/
 
 *.o
