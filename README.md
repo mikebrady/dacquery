@@ -55,7 +55,7 @@ $ dacquery
                        -------------------------------------------------------------------------------------------------------------
 ```
 #### OPTIONS
-`-e`Display some extra information, including information about devices, sub-devices and interfaces. The start of the example above would become:
+`-e` Display some extra information, including information about devices, sub-devices and interfaces. The start of the example above would become:
 ```
   --- Card 0:
         --- CTL name: "hw:CARD=Generic".
@@ -74,9 +74,9 @@ $ dacquery
             ...
 ```
 
-`-h`Display help information and quit.
+`-h` Display help information and quit.
 
-`-V`Display version information and quit.
+`-V` Display version information and quit.
 
 #### NOTES
 Dacquery must have permission to access the ALSA sound system. It should complain if it does not.
