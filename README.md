@@ -57,6 +57,9 @@ $ dacquery
 #### OPTIONS
 `-e` Display some extra information, including information about devices, sub-devices and interfaces. The start of the example above would become:
 ```
+$ dacquery -e
+  --- Alsa Version: 1.2.12.
+  --- Sound Cards: 1.
   --- Card 0:
         --- CTL name: "hw:CARD=Generic".
         --- Name: "HD-Audio Generic".
