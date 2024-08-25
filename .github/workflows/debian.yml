@@ -34,3 +34,9 @@ jobs:
           depends: 'libc6 (>= 2.2.1), git'
           desc: 'this is sample package.'
           homepage: 'https://github.com/mikebrady/dacquery'
+  
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: samplescript_1_amd64.deb
+          path: samplescript_1_amd64.deb
