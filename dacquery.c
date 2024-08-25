@@ -692,9 +692,9 @@ void print_configuration(configuration_bundle *configuration,
       if (configuration->configuration_sets[i].channel_set != 0) {
         if (printed_configuration_sets == 0) {
           if (similar_interface_count == 1)
-            printf("                  The interface listed above supports ");
+            printf("                  This interface supports ");
           else
-            printf("                  The interfaces listed above support ");
+            printf("                  These interfaces support ");
         } else {
           if (similar_interface_count == 1)
             printf("                    It also supports ");
@@ -1037,7 +1037,7 @@ static int process_cards() {
                 } else if (configurations[ci]->error_status == -524) {
                   printf("%sThis interface appears to be for a disconnected or uninitialized HDMI port. To test it:\n",
                          indent);
-                  printf("%s   (1) connect it to the target HDMI device,\n", indent);
+                  printf("%s   (1) connect it to the HDMI device,\n", indent);
                   printf("%s   (2) turn the HDMI device on and select this device as "
                          "source,\n",
                          indent);
