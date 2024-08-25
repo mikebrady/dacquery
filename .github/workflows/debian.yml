@@ -33,4 +33,4 @@ jobs:
           arch: 'amd64'
           depends: 'libc6 (>= 2.2.1), git'
           desc: 'this is sample package.'
-          homepage: 'https://github.com/jiro4989/build-deb-action'
+          homepage: 'https://github.com/mikebrady/dacquery'
