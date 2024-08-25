@@ -11,7 +11,7 @@ The name on the command line is `dacquery`.
 #### BUILD FROM SOURCE
 **Note:** As an alternative to building from source, Dacquery is available as a Docker image on the [Docker Hub](https://hub.docker.com/r/mikebrady/dacquery).
 
-To build from source, execute the following commands. Superuser priviliges may be needed for the `make install` step to succeed.
+To build from source, execute the following commands. Superuser privileges may be needed for the `make install` step to succeed.
 ```
 $ git clone https://github.com/mikebrady/dacquery.git
 $ cd dacquery
