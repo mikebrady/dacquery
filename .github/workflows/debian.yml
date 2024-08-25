@@ -36,7 +36,7 @@ jobs:
           homepage: 'https://github.com/mikebrady/dacquery'
   
       - name: Upload artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: samplescript_1_amd64.deb
           path: samplescript_1_amd64.deb
