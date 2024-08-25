@@ -84,7 +84,7 @@ $ dacquery -e
 #### NOTES
 Dacquery must have permission to access the ALSA sound system. It should complain if it does not.
 
-For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
+For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, it may be an indication that it is being used by a sound server such as PulseAudio or PipeWire.
 
 To  test  a  HDMI  interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
 
