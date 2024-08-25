@@ -6,7 +6,9 @@ Dacquery only probes interfaces that begin with `hw:`, `hdmi:` or `iec958:`.
 
 Dacquery also lists the mixers  attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute.
 
-The name on the command line is `dacquery`. 
+The name on the command line is `dacquery`.
+
+**Note:** Dacquery is available as a Docker image on the [Docker Hub](https://hub.docker.com/r/mikebrady/dacquery).
 
 #### EXAMPLE
 
