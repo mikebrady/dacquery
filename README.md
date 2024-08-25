@@ -8,7 +8,18 @@ Dacquery also lists the mixers  attached to the cards, listing their ranges, dec
 
 The name on the command line is `dacquery`.
 
-**Note:** Dacquery is available as a Docker image on the [Docker Hub](https://hub.docker.com/r/mikebrady/dacquery).
+#### BUILD FROM SOURCE
+**Note:** As an alternative to building from source, Dacquery is available as a Docker image on the [Docker Hub](https://hub.docker.com/r/mikebrady/dacquery).
+
+To build from source, execute the following commands. Superuser priviliges may be needed for the `make install` step to succeed.
+```
+$ git clone https://github.com/mikebrady/dacquery.git
+$ cd dacquery
+$ autoreconf -fi
+$ ./configure
+$ make
+# make install
+```
 
 #### EXAMPLE
 
