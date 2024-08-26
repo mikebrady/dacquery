@@ -9,7 +9,11 @@ dacquery -h\fB
 dacquery -V\fB
 \f1
 .SH DESCRIPTION
-Dacquery in an ALSA utility that scans a system's sound cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels (with channel maps if available) that can be accepted using interleaved output. It probes interfaces that begin with \fBhw:\f1, \fBhdmi:\f1 or \fBiec958:\f1. Dacquery also lists the mixers attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute. 
+Dacquery in an ALSA utility that scans a system's sound cards for Digital to Analog Converters -- "DACs" -- and lists the combinations of rates, sample formats and channels (with channel maps if available) that can be accepted using interleaved output.
+
+Dacquery only probes interfaces that begin with \fBhw:\f1, \fBhdmi:\f1 or \fBiec958:\f1.
+
+Dacquery also lists the mixers attached to the cards, listing their ranges, decibel-denominated ranges if provided and, if so, whether they accept a special decibel "volume" that causes them to mute. 
 .SH OPTIONS
 .TP
 \fB-e\f1
@@ -67,14 +71,17 @@ $ dacquery -e
 .EE
 .in
 .P
-.SH NOTES
+.SH NOTES AND LIMITATIONS
 Dacquery must have permission to access the ALSA sound system. It will complain if it does not.
 
-For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, perhaps it is being used by a sound server such as PulseAudio or PipeWire.
+For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, it may be an indication that it is being used by a sound server such as PulseAudio or PipeWire.
 
-To test a HDMI interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
-.SH LIMITATION
-Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world. Another possibility is that the same audio hardware can appear in two or more different interfaces.
+To test a HDMI interface, it is usually necessary to have a HDMI device connected to it and enabled. In addition, the HDMI device's source should be set to this device. Once this has been done, you should reboot this system to ensure the appropriate drivers are loaded. Otherwise, the HDMI interface may be listed as uninitialised.
+
+Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world.
+
+Another phenomenon to look out for is that the same audio hardware can appear in two or more different interfaces. That is, there might be two or more interfaces that present slightly different access to the same underlying hardware. If the interfaces are to the same subdevice (see the \fB-e\f1 option), then it is likely that they refer to the same hardware.
+
 .SH SEE ALSO
 \fBaplay(1)\f1, \fBamixer(1)\f1, \fBalsamixer(1)\f1, \fBspeaker-test(1)\f1. 
 .SH CREDITS

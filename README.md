@@ -81,20 +81,19 @@ $ dacquery -e
 
 `-V` Display version information and quit.
 
-#### NOTES
-Dacquery must have permission to access the ALSA sound system. It should complain if it does not.
+#### NOTES AND LIMITATIONS
+Dacquery must have permission to access the ALSA sound system. It will complain if it does not.
 
 For Dacquery to fully investigate a device, the device must be idle. If you can't free up a device, it may be an indication that it is being used by a sound server such as PulseAudio or PipeWire.
 
-To  test  a  HDMI  interface, it is usually necessary to have a HDMI device connected to it and enabled at the time your system boots up. Otherwise, the HDMI interface may be listed as uninitialised.
+To test a HDMI interface, it is usually necessary to have a HDMI device connected to it and enabled. In addition, the HDMI device's source should be set to this device. Once this has been done, you should reboot this system to ensure the appropriate drivers are loaded. Otherwise, the HDMI interface may be listed as uninitialised.
 
-#### LIMITATION
-Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be useful or functional. For instance, they may not be physically hooked up to, say, output connections.
+Dacquery lists devices and mixers as they appear to programs and utilities running on the computer. Sometimes, however, these devices may not be functional in reality. For instance, they may not be hooked up to the outside world.
 
-Another thing to note is that the same audio hardware can appear in two or more different interfaces.
+Another phenomenon to look out for is that the same audio hardware can appear in two or more different interfaces. That is, there might be two or more interfaces that present slightly different access to the same underlying hardware. If the interfaces are to the same subdevice (see the `-e` option), then it is likely that they refer to the same hardware.
 
 #### SEE ALSO
 `aplay(1)`, `amixer(1)`, `alsamixer(1)`, `speaker-test(1)`.
 
 #### CREDITS
-Mike Brady (https://github.com/mikebrady) wrote Dacquery to help with Shairport Sync.
+Mike Brady (https://github.com/mikebrady) wrote Dacquery.
