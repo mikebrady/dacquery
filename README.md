@@ -15,12 +15,18 @@ To build from source, ensure the system is up to date, install the tools and lib
 
 In the commands below, note the convention that a `#` prompt means you are in superuser mode and a `$` prompt means you are in a regular unprivileged user mode. You can use `sudo` *("SUperuser DO")* to temporarily promote yourself from user to superuser, if permitted. For example, if you want to execute `apt update` in superuser mode and you are in user mode, enter `sudo apt update`.
 
-##### Install Tools and Libraries (Debian / Raspberry Pi OS / Ubuntu)
+##### Install Tools and Libraries
 Some of these tools and libraries may already be installed -- it does no harm to try to install them again.
+###### Debian / Raspberry Pi OS / Ubuntu:
 ```
 # apt update
 # apt upgrade # this is optional but recommended
 # apt install --no-install-recommends build-essential git autoconf automake libasound2-dev
+```
+###### Fedora:
+```
+# yum update
+# yum install git autoconf automake gcc alsa-lib-devel
 ```
 ##### Build and install Dacquery
 Execute the following commands.
