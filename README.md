@@ -11,7 +11,19 @@ The name on the command line is `dacquery`.
 #### BUILD FROM SOURCE
 **Note:** As an alternative to building from source, Dacquery is available as a Docker image on the [Docker Hub](https://hub.docker.com/r/mikebrady/dacquery).
 
-To build from source, execute the following commands. Superuser privileges may be needed for the `make install` step to succeed.
+To build from source, ensure the system is up to date, install the tools and libraries needed and then build and install Dacquery.
+
+In the commands below, note the convention that a `#` prompt means you are in superuser mode and a `$` prompt means you are in a regular unprivileged user mode. You can use `sudo` *("SUperuser DO")* to temporarily promote yourself from user to superuser, if permitted. For example, if you want to execute `apt update` in superuser mode and you are in user mode, enter `sudo apt update`.
+
+##### Install Tools and Libraries
+Some of these tools and libraries may already be installed -- it does no harm to try to install them again.
+```
+# apt update
+# apt upgrade # this is optional but recommended
+# apt install --no-install-recommends build-essential git autoconf automake libasound2-dev
+```
+##### Build and install Dacquery
+Execute the following commands.
 ```
 $ git clone https://github.com/mikebrady/dacquery.git
 $ cd dacquery
