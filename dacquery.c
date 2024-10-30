@@ -1035,7 +1035,15 @@ static int process_cards() {
                          indent);
                   printf("%sTo check it, take it out of use and try again.\n", indent);
                 } else if (configurations[ci]->error_status == -524) {
-                  printf("%sThis interface appears to be for a disconnected or uninitialized HDMI port. To test it:\n",
+                  printf("%sThis interface appears to be for a disconnected or uninitialized HDMI port. To test it, perform the following steps:\n",
+                         indent);
+                  printf("%s   (1) connect it to the HDMI device,\n", indent);
+                  printf("%s   (2) turn the HDMI device on and select this device as "
+                         "source,\n",
+                         indent);
+                  printf("%s   (3) reboot and try again.\n", indent);
+                } else if (configurations[ci]->error_status == -ENODEV) {
+                  printf("%sThis interface cannot be found (error 19). If it is for a HDMI port then, to test it, perform the following steps:\n",
                          indent);
                   printf("%s   (1) connect it to the HDMI device,\n", indent);
                   printf("%s   (2) turn the HDMI device on and select this device as "
@@ -1144,7 +1152,7 @@ void check_device_access() {
                 "This check can not be performed because the current user, \"%s\", does not have "
                 "permission to access sound devices.",
                 result->pw_name);
-            inform("Adding \"%s\" to the \"%s\" group may fix this.", result->pw_name, gr->gr_name);
+            inform("To fix this, ensure \"%s\" is in the \"%s\" group and reboot.", result->pw_name, gr->gr_name);
             inform("Alternatively, try running this tool as the \"root\" user.");
           } else {
             inform(
